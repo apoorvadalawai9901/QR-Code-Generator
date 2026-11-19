@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>QR Code Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Scanly home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3.75 9V4.5a.75.75 0 0 1 .75-.75H9M15 3.75h4.5a.75.75 0 0 1 .75.75V9M20.25 15v4.5a.75.75 0 0 1-.75.75H15M9 20.25H4.5a.75.75 0 0 1-.75-.75V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8 8h2v2H8zM14 8h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span>scanly<span class="brand-dot">.</span></span>
+      </a>
+      <span class="topbar-note"><span class="status-dot"></span> Free, simple, instant</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> YOUR LINK, SCANNABLE</div>
+      <h1 id="page-title">Make a QR code.<br><span>Make it happen.</span></h1>
+      <p class="intro">Turn any link or text into a QR code in seconds.<br class="desktop-break"> Ready to share wherever you are.</p>
+    </section>
+
+    <section class="generator-card" aria-label="QR code generator">
+      <form id="generator-form" novalidate>
+        <label for="qr-input">Paste a link or type anything</label>
+        <div class="input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10 13.5a4 4 0 0 0 5.657 0l3-3A4 4 0 0 0 13 4.843l-1.72 1.72M14 10.5a4 4 0 0 0-5.657 0l-3 3A4 4 0 0 0 11 19.157l1.72-1.72" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <input id="qr-input" name="content" type="text" placeholder="https://yourwebsite.com" autocomplete="url" aria-describedby="input-hint error-message">
+          <button class="generate-button" type="submit">
+            <span>Generate</span>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4.167 10h11.666M10 4.167 15.833 10 10 15.833" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p id="input-hint" class="input-hint">No sign-up needed. Your content stays on this page.</p>
+        <p id="error-message" class="error-message" role="alert" hidden></p>
+      </form>
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-art" aria-hidden="true">
+            <span class="empty-corner corner-tl"></span>
+            <span class="empty-corner corner-tr"></span>
+            <span class="empty-corner corner-bl"></span>
+            <span class="empty-grid"></span>
+            <span class="empty-spark spark-one">✦</span>
+            <span class="empty-spark spark-two">✧</span>
+          </div>
+          <p>Your QR code will appear here</p>
+          <span>Enter some text above to get started</span>
+        </div>
+        <div class="qr-output" id="qr-output" hidden>
+          <div class="qr-frame">
+            <div id="qr-code" aria-label="Generated QR code"></div>
+          </div>
+          <p class="result-title">Your QR code is ready</p>
+          <p class="result-subtitle">Scan it with your phone camera</p>
+          <a class="download-button" id="download-button" href="#" download="qr-code.png" aria-disabled="true">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 2.5v10m0 0 3.75-3.75M10 12.5 6.25 8.75M3.75 13.75v2.5c0 .46.373.833.833.833h10.834c.46 0 .833-.373.833-.833v-2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download PNG
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Made for sharing <span aria-hidden="true">✳</span></span>
+      <span>Just scan &amp; go.</span>
+    </footer>
+  </main>
+</body>
+</html>
